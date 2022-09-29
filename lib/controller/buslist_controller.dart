@@ -9,35 +9,21 @@ class Controller extends GetxController {
   var assigndrivers = "".obs;
 
   void buses() async {
-    log("it is coming here");
     var images = await Services.getbuslist();
-    // if (images != null) {
-
-    log("almost done${images!.busList}");
-    busLists.value = images.busList!;
-    log("${busLists.value}");
-    //  }
+    busLists.value = images!.busList!;
   }
 
   void drivers() async {
-    log("it is coming here");
     var driverslist = await Services.getdriverslist();
-    // if (images != null) {
-
-    log("almost done${driverslist!}");
     driverLists.value = driverslist as List;
 
-    //  }
+  
   }
 
   void assigndriverss() async {
-    log("it is coming here");
     var assign = await Services.assigndriver();
-    // if (images != null) {
+    assigndrivers.value = "${assign!.message}";
 
-    log("pinne ${assign!}");
-    assigndrivers.value = "${assign.message}";
-
-    //  }
+  
   }
 }

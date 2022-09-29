@@ -80,26 +80,15 @@ class AddDriverPage extends StatelessWidget {
                 if (_formkey.currentState!.validate()) {
                   final res = await Services.drivermanagementpost(
                       namecontroller.text, lisencecontroller.text);
-                  log("yeaaaaaadone");
                   if (res?.status == true) {
-                    // SharedPreferences prefs =
-                    //     await SharedPreferences
-                    //         .getInstance();
-                    // prefs.setString(
-                    //     "name", "Accountant app");
-
                     Services.drivermanagementpost(
                             namecontroller.text, lisencecontroller.text)
                         .then((result) {
-                      // Savetoken.savetoken(
-                      //     "${result!.data!.token}");
-                      // var getscsd = SaveId.getId();
                       Get.back();
                     });
                   } else {
                     Fluttertoast.showToast(msg: "${res?.message}");
 
-                    print(res?.message);
                     res?.message;
                   }
                 }

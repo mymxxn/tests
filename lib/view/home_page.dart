@@ -124,11 +124,9 @@ class HomePage extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return ListTile(
                             onTap: () {
-                              // if (controller.busList[1]) {
-                              //   Get.to(() => Bus1x3seatsPage());
-                              // } else {
+                            
                               Get.to(() => Bus2x2seatsPage());
-                              //  }
+                           
                             },
                             leading: Container(
                               color: Color.fromRGBO(243, 243, 243, 1),

@@ -17,15 +17,9 @@ class Services {
           "Content-Type": "application/json",
           'Authorization': 'Bearer ${saveget.getapikeyl()}',
         });
-    // log("${saveget.geturlid()}");
-    // log("${saveget.getapikeyl()}");
-
-    // log("${resp.statusCode}");
+    
     if (resp.statusCode == 200) {
-      // final decoded = jsonDecode(resp.body);
-      log(resp.body);
-
-      log("${BusListModel.fromJson(json.decode(resp.body))}");
+      
       return BusListModel.fromJson(json.decode(resp.body));
     } else {
       throw Exception('Failed to load data');
@@ -40,15 +34,10 @@ class Services {
           "Content-Type": "application/json",
           'Authorization': 'Bearer ${saveget.getapikeyl()}',
         });
-    // log("${saveget.geturlid()}");
-    // log("${saveget.getapikeyl()}");
-
-    // log("${resp.statusCode}");
+    
     if (resp.statusCode == 200) {
-      // final decoded = jsonDecode(resp.body);
-      // log(resp.body);
+      
 
-      log("${DriverList.fromJson(json.decode(resp.body))}");
       return DriverList.fromJson(json.decode(resp.body));
     } else {
       throw Exception('Failed to load data');
@@ -62,15 +51,9 @@ class Services {
           "Content-Type": "application/json",
           'Authorization': 'Bearer ${saveget.getapikeyl()}',
         },body: {"bus_id":1,"driver_id":70});
-    // log("${saveget.geturlid()}");
-    // log("${saveget.getapikeyl()}");
-
-    // log("${resp.statusCode}");
+    
     if (resp.statusCode == 200) {
-      // final decoded = jsonDecode(resp.body);
-      // log(resp.body);
-
-      log("${AssignDriverModel.fromJson(json.decode(resp.body))}");
+     
       return AssignDriverModel.fromJson(json.decode(resp.body));
     } else {
       throw Exception('Failed to load data');
@@ -89,15 +72,9 @@ class Services {
           "mobile": 70,
           "license_no":license_no
         });
-    // log("${saveget.geturlid()}");
-    // log("${saveget.getapikeyl()}");
-
-    // log("${resp.statusCode}");
+   
     if (resp.statusCode == 200) {
-      // final decoded = jsonDecode(resp.body);
-      // log(resp.body);
 
-      log("${DriverManagementModel.fromJson(json.decode(resp.body))}");
       return DriverManagementModel.fromJson(json.decode(resp.body));
     } else {
       throw Exception('Failed to load data');
@@ -116,15 +93,10 @@ class Services {
           "driver_id": 1,
           
         });
-    // log("${saveget.geturlid()}");
-    // log("${saveget.getapikeyl()}");
-
-    // log("${resp.statusCode}");
+  
     if (resp.statusCode == 200) {
-      // final decoded = jsonDecode(resp.body);
-      // log(resp.body);
+     
 
-      log("${DriverManagementModel.fromJson(json.decode(resp.body))}");
       return DriverManagementModel.fromJson(json.decode(resp.body));
     } else {
       throw Exception('Failed to load data');

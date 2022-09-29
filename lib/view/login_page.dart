@@ -141,23 +141,17 @@ class LoginPage extends StatelessWidget {
                       usernamcontroller.text, passwordcontroller.text);
 
                   if (res?.status == true) {
-                    // SharedPreferences prefs =
-                    //     await SharedPreferences
-                    //         .getInstance();
-                    // prefs.setString(
-                    //     "name", "Accountant app");
+                  
 
                     loginapi(usernamcontroller.text, passwordcontroller.text)
                         .then((result) {
-                      // Savetoken.savetoken(
-                      //     "${result!.data!.token}");
-                      // var getscsd = SaveId.getId();
+                     
                       Get.to(() => HomePage());
                     });
                   } else {
                     Fluttertoast.showToast(msg: "${res?.message}");
 
-                    print(res?.message);
+                  
                     res?.message;
                   }
                 }
