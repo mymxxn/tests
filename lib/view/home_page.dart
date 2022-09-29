@@ -134,11 +134,10 @@ class HomePage extends StatelessWidget {
                               color: Color.fromRGBO(243, 243, 243, 1),
                               height: 73,
                               width: 79,
-                              child: Image.asset(
-                                  "${constant.baseURL}${list![index].image}"),
+                              child: Image.asset("assets/image 3.png"),
                             ),
                             title: Text(
-                              "${list[index].name} \nSwift Scania P-series",
+                              "${list![index].name} \nSwift Scania P-series",
                               style: TextStyle(
                                   fontWeight: FontWeight.w500, fontSize: 12),
                             ),
@@ -152,7 +151,9 @@ class HomePage extends StatelessWidget {
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.transparent,
                                       elevation: 0),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.to(() => Bus1x3seatsPage());
+                                  },
                                   child: Text("Manage",
                                       style: TextStyle(
                                           fontWeight: FontWeight.w400,
@@ -167,114 +168,6 @@ class HomePage extends StatelessWidget {
                             ),
                         itemCount: controller.busLists.length);
                   }),
-              // Expanded(
-              //     child: Column(
-              //   children: [
-              //     ListTile(
-              //       onTap: () async {
-              //         controller.buslist();
-              //         log("${controller.busList.length}");
-              //         Get.to(() => Bus2x2seatsPage());
-              //       },
-              //       leading: Container(
-              //         color: Color.fromRGBO(243, 243, 243, 1),
-              //         height: 73,
-              //         width: 79,
-              //         child: Image.asset("assets/image 3.png"),
-              //       ),
-              //       title: Text(
-              //         "KSRTC \nSwift Scania P-series",
-              //         style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
-              //       ),
-              //       trailing: Container(
-              //         height: 30,
-              //         width: 70,
-              //         decoration: BoxDecoration(
-              //             borderRadius: BorderRadius.circular(4),
-              //             color: commoncolor),
-              //         child: ElevatedButton(
-              //             style: ElevatedButton.styleFrom(
-              //                 backgroundColor: Colors.transparent, elevation: 0),
-              //             onPressed: () {},
-              //             child: Text("Manage",
-              //                 style: TextStyle(
-              //                     fontWeight: FontWeight.w400,
-              //                     fontSize: 10,
-              //                     color: Color.fromRGBO(255, 255, 255, 1)))),
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       height: 13,
-              //     ),
-              //     ListTile(
-              //       onTap: () {
-              //         Get.to(() => Bus1x3seatsPage());
-              //       },
-              //       leading: Container(
-              //         color: Color.fromRGBO(243, 243, 243, 1),
-              //         height: 73,
-              //         width: 79,
-              //         child: Image.asset("assets/image 3.png"),
-              //       ),
-              //       title: Text(
-              //         "KSRTC \nSwift Scania P-series",
-              //         style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
-              //       ),
-              //       trailing: Container(
-              //         height: 30,
-              //         width: 70,
-              //         decoration: BoxDecoration(
-              //             borderRadius: BorderRadius.circular(4),
-              //             color: commoncolor),
-              //         child: ElevatedButton(
-              //             style: ElevatedButton.styleFrom(
-              //                 backgroundColor: Colors.transparent, elevation: 0),
-              //             onPressed: () {},
-              //             child: Text("Manage",
-              //                 style: TextStyle(
-              //                     fontWeight: FontWeight.w400,
-              //                     fontSize: 10,
-              //                     color: Color.fromRGBO(255, 255, 255, 1)))),
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       height: 13,
-              //     ),
-              //     ListTile(
-              //       onTap: () {
-              //         Get.to(() => Bus1x3seatsPage());
-              //       },
-              //       leading: Container(
-              //         color: Color.fromRGBO(243, 243, 243, 1),
-              //         height: 73,
-              //         width: 79,
-              //         child: Image.asset("assets/image 3.png"),
-              //       ),
-              //       title: Text(
-              //         "KSRTC \nSwift Scania P-series",
-              //         style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
-              //       ),
-              //       trailing: Container(
-              //         height: 30,
-              //         width: 70,
-              //         decoration: BoxDecoration(
-              //             borderRadius: BorderRadius.circular(4),
-              //             color: commoncolor),
-              //         child: ElevatedButton(
-              //             style: ElevatedButton.styleFrom(
-              //                 backgroundColor: Colors.transparent, elevation: 0),
-              //             onPressed: () {
-              //               Services.getbuslist();
-              //             },
-              //             child: Text("Manage",
-              //                 style: TextStyle(
-              //                     fontWeight: FontWeight.w400,
-              //                     fontSize: 10,
-              //                     color: Color.fromRGBO(255, 255, 255, 1)))),
-              //       ),
-              //     ),
-              //   ],
-              // )),
             )
           ],
         ),

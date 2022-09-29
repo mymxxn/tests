@@ -32,55 +32,6 @@ class DriversList extends StatelessWidget {
                   fontSize: 13,
                   color: Color.fromRGBO(107, 107, 107, 1)),
             ),
-            // Row(
-            //   children: [
-            //     Container(
-            //       decoration: BoxDecoration(
-            //           borderRadius: BorderRadius.only(
-            //               topLeft: Radius.circular(15),
-            //               bottomLeft: Radius.circular(15)),
-            //           color: Color.fromRGBO(243, 243, 243, 1)),
-            //       height: 73,
-            //       width: 79,
-            //       child: Image.asset("assets/Ellipse.png"),
-            //     ),
-            //     Container(
-            //       decoration: BoxDecoration(
-            //           borderRadius: BorderRadius.only(
-            //               topLeft: Radius.circular(15),
-            //               bottomLeft: Radius.circular(15)),
-            //           color: Colors.white),
-            //       height: 73,
-            //       width: double.infinity,
-            //       child:
-            //           //  Row(
-            //           //   children: [
-            //           Text(
-            //         "KSRTC \nSwift Scania P-series",
-            //         style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
-            //       ),
-            //       // Container(
-            //       //   height: 30,
-            //       //   width: 70,
-            //       //   decoration: BoxDecoration(
-            //       //       borderRadius: BorderRadius.circular(4),
-            //       //       color: Color.fromRGBO(252, 21, 59, 1)),
-            //       //   child: ElevatedButton(
-            //       //       style: ElevatedButton.styleFrom(
-            //       //           backgroundColor: Colors.transparent,
-            //       //           elevation: 0),
-            //       //       onPressed: () {},
-            //       //       child: Text("Manage",
-            //       //           style: TextStyle(
-            //       //               fontWeight: FontWeight.w400,
-            //       //               fontSize: 10,
-            //       //               color: Color.fromRGBO(255, 255, 255, 1)))),
-            //       // ),
-            //       //   ],
-            //       // ),
-            //     )
-            //   ],
-            // ),
             SizedBox(
               height: 12,
             ),

@@ -29,4 +29,22 @@ class saveget {
     final box = GetStorage();
     return box.read("urlid") ?? true;
   }
+  static savebusid(String busid) {
+    final box = GetStorage();
+    box.write("busid", busid);
+  }
+
+  static getbusid() {
+    final box = GetStorage();
+    return box.read("busid") ?? true;
+  }
+  static savedriverid(String driverid) {
+    final box = GetStorage();
+    box.write("driverid", driverid);
+  }
+
+  static getdriverid() {
+    final box = GetStorage();
+    return box.read("driverid") ?? true;
+  }
 }
