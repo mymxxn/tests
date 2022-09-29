@@ -9,7 +9,7 @@ class FrontPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(252, 21, 59, 1),
+      backgroundColor: commoncolor,
       body: Center(child: mainlogo),
       floatingActionButton: getstartedbtn(),
     );

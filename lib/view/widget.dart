@@ -8,19 +8,22 @@ import 'package:noviindus_api/view/login_page.dart';
 final mainlogo = Image.asset("assets/logo.png");
 final commonchairred = Icon(
   Icons.chair,
-  color: Color.fromRGBO(252, 21, 59, 10),
+  color: commoncolor,
   size: 30,
 );
 final spacebetweenchair = SizedBox(
   height: 10,
 );
+final commoncolor = Color.fromRGBO(252, 21, 59, 1);
 Widget getstartedbtn() => Padding(
-      padding: const EdgeInsets.only(left: 30),
+      padding: const EdgeInsets.only(
+        left: 30,
+      ),
       child: Container(
         height: 58,
         width: double.infinity,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: BorderRadius.circular(10),
             color: Color.fromRGBO(255, 255, 255, 1)),
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -32,7 +35,7 @@ Widget getstartedbtn() => Padding(
                 style: TextStyle(
                     fontWeight: FontWeight.w500,
                     fontSize: 20,
-                    color: Color.fromRGBO(252, 21, 59, 1)))),
+                    color: commoncolor))),
       ),
     );
 homepageappbar() => AppBar(

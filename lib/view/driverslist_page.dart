@@ -1,15 +1,23 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:noviindus_api/API/apicalling.dart';
+import 'package:noviindus_api/controller/buslist_controller.dart';
 import 'package:noviindus_api/view/adddriver_page.dart';
 import 'package:noviindus_api/view/widget.dart';
 
 class DriversList extends StatelessWidget {
-  const DriversList({super.key});
+  DriversList({super.key});
+  final controller = Get.put(Controller());
 
   @override
   Widget build(BuildContext context) {
+    controller.assigndriverss();
+    controller.drivers();
     return Scaffold(
       appBar: commonappbar("Driver List"),
       body: Padding(
@@ -76,188 +84,265 @@ class DriversList extends StatelessWidget {
             SizedBox(
               height: 12,
             ),
-            ListTile(
-              onTap: () {},
-              leading: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      bottomLeft: Radius.circular(12)),
-                  color: Color.fromRGBO(243, 243, 243, 1),
-                ),
-                height: 73,
-                width: 79,
-                child: Image.asset("assets/Ellipse.png"),
-              ),
-              title: Text(
-                "Rohit sharma \nLicn no: PJ5151961616",
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
-              ),
-              trailing: Container(
-                height: 30,
-                width: 70,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: Color.fromRGBO(252, 21, 59, 1)),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent, elevation: 0),
-                    onPressed: () {},
-                    child: Text("Delete",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                            color: Color.fromRGBO(255, 255, 255, 1)))),
-              ),
-            ),
-            SizedBox(
-              height: 14,
-            ),
-            ListTile(
-              onTap: () {},
-              leading: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      bottomLeft: Radius.circular(12)),
-                  color: Color.fromRGBO(243, 243, 243, 1),
-                ),
-                height: 73,
-                width: 79,
-                child: Image.asset("assets/Ellipse.png"),
-              ),
-              title: Text(
-                "Rohit sharma \nLicn no: PJ5151961616",
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
-              ),
-              trailing: Container(
-                height: 30,
-                width: 70,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: Color.fromRGBO(252, 21, 59, 1)),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent, elevation: 0),
-                    onPressed: () {},
-                    child: Text("Delete",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                            color: Color.fromRGBO(255, 255, 255, 1)))),
-              ),
-            ),
-            SizedBox(
-              height: 14,
-            ),
-            ListTile(
-              onTap: () {},
-              leading: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      bottomLeft: Radius.circular(12)),
-                  color: Color.fromRGBO(243, 243, 243, 1),
-                ),
-                height: 73,
-                width: 79,
-                child: Image.asset("assets/Ellipse.png"),
-              ),
-              title: Text(
-                "Rohit sharma \nLicn no: PJ5151961616",
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
-              ),
-              trailing: Container(
-                height: 30,
-                width: 70,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: Color.fromRGBO(252, 21, 59, 1)),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent, elevation: 0),
-                    onPressed: () {},
-                    child: Text("Delete",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                            color: Color.fromRGBO(255, 255, 255, 1)))),
-              ),
-            ),
-            SizedBox(
-              height: 14,
-            ),
-            ListTile(
-              onTap: () {},
-              leading: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      bottomLeft: Radius.circular(12)),
-                  color: Color.fromRGBO(243, 243, 243, 1),
-                ),
-                height: 73,
-                width: 79,
-                child: Image.asset("assets/Ellipse.png"),
-              ),
-              title: Text(
-                "Rohit sharma \nLicn no: PJ5151961616",
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
-              ),
-              trailing: Container(
-                height: 30,
-                width: 70,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: Color.fromRGBO(252, 21, 59, 1)),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent, elevation: 0),
-                    onPressed: () {},
-                    child: Text("Delete",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                            color: Color.fromRGBO(255, 255, 255, 1)))),
-              ),
-            ),
-            SizedBox(
-              height: 14,
-            ),
-            ListTile(
-              onTap: () {},
-              leading: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      bottomLeft: Radius.circular(12)),
-                  color: Color.fromRGBO(243, 243, 243, 1),
-                ),
-                height: 73,
-                width: 79,
-                child: Image.asset("assets/Ellipse.png"),
-              ),
-              title: Text(
-                "Rohit sharma \nLicn no: PJ5151961616",
-                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
-              ),
-              trailing: Container(
-                height: 30,
-                width: 70,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(4),
-                    color: Color.fromRGBO(252, 21, 59, 1)),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.transparent, elevation: 0),
-                    onPressed: () {},
-                    child: Text("Delete",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                            color: Color.fromRGBO(255, 255, 255, 1)))),
-              ),
-            ),
+            Expanded(
+                child: FutureBuilder(
+                    future: Services.getdriverslist(),
+                    builder: (context, snapshot) {
+                      return ListView.separated(
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              onTap: () {
+                                Obx(() {
+                                  Get.back;
+                                  log("${controller.assigndrivers}");
+                                  return Container();
+                                });
+                              },
+                              leading: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(12),
+                                      bottomLeft: Radius.circular(12)),
+                                  color: Color.fromRGBO(243, 243, 243, 1),
+                                ),
+                                height: 73,
+                                width: 79,
+                                child: Image.asset("assets/Ellipse.png"),
+                              ),
+                              title: Text(
+                                "Rohit sharma \nLicn no: PJ5151961616",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 12),
+                              ),
+                              trailing: Container(
+                                height: 30,
+                                width: 70,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: commoncolor),
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        elevation: 0),
+                                    onPressed: () async {
+                                      final res = await Services
+                                          .drivermanagementdelete();
+                                      log("yeaaaaaadone");
+                                      if (res?.status == true) {
+                                        // SharedPreferences prefs =
+                                        //     await SharedPreferences
+                                        //         .getInstance();
+                                        // prefs.setString(
+                                        //     "name", "Accountant app");
+
+                                        Services.drivermanagementdelete()
+                                            .then((result) {
+                                          // Savetoken.savetoken(
+                                          //     "${result!.data!.token}");
+                                          // var getscsd = SaveId.getId();
+                                        });
+                                      } else {
+                                        Fluttertoast.showToast(
+                                            msg: "${res?.message}");
+
+                                        print(res?.message);
+                                        res?.message;
+                                      }
+                                    },
+                                    child: Text("Delete",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 10,
+                                            color: Color.fromRGBO(
+                                                255, 255, 255, 1)))),
+                              ),
+                            );
+                          },
+                          separatorBuilder: (context, index) => SizedBox(
+                                height: 14,
+                              ),
+                          itemCount: controller.busLists.length);
+                    }))
+            // ListTile(
+            //   onTap: () {},
+            //   leading: Container(
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.only(
+            //           topLeft: Radius.circular(12),
+            //           bottomLeft: Radius.circular(12)),
+            //       color: Color.fromRGBO(243, 243, 243, 1),
+            //     ),
+            //     height: 73,
+            //     width: 79,
+            //     child: Image.asset("assets/Ellipse.png"),
+            //   ),
+            //   title: Text(
+            //     "Rohit sharma \nLicn no: PJ5151961616",
+            //     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+            //   ),
+            //   trailing: Container(
+            //     height: 30,
+            //     width: 70,
+            //     decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(4),
+            //         color: commoncolor),
+            //     child: ElevatedButton(
+            //         style: ElevatedButton.styleFrom(
+            //             backgroundColor: Colors.transparent, elevation: 0),
+            //         onPressed: () {},
+            //         child: Text("Delete",
+            //             style: TextStyle(
+            //                 fontWeight: FontWeight.w400,
+            //                 fontSize: 10,
+            //                 color: Color.fromRGBO(255, 255, 255, 1)))),
+            //   ),
+            // ),
+
+            // ListTile(
+            //   onTap: () {},
+            //   leading: Container(
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.only(
+            //           topLeft: Radius.circular(12),
+            //           bottomLeft: Radius.circular(12)),
+            //       color: Color.fromRGBO(243, 243, 243, 1),
+            //     ),
+            //     height: 73,
+            //     width: 79,
+            //     child: Image.asset("assets/Ellipse.png"),
+            //   ),
+            //   title: Text(
+            //     "Rohit sharma \nLicn no: PJ5151961616",
+            //     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+            //   ),
+            //   trailing: Container(
+            //     height: 30,
+            //     width: 70,
+            //     decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(4),
+            //         color: commoncolor),
+            //     child: ElevatedButton(
+            //         style: ElevatedButton.styleFrom(
+            //             backgroundColor: Colors.transparent, elevation: 0),
+            //         onPressed: () {},
+            //         child: Text("Delete",
+            //             style: TextStyle(
+            //                 fontWeight: FontWeight.w400,
+            //                 fontSize: 10,
+            //                 color: Color.fromRGBO(255, 255, 255, 1)))),
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 14,
+            // ),
+            // ListTile(
+            //   onTap: () {},
+            //   leading: Container(
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.only(
+            //           topLeft: Radius.circular(12),
+            //           bottomLeft: Radius.circular(12)),
+            //       color: Color.fromRGBO(243, 243, 243, 1),
+            //     ),
+            //     height: 73,
+            //     width: 79,
+            //     child: Image.asset("assets/Ellipse.png"),
+            //   ),
+            //   title: Text(
+            //     "Rohit sharma \nLicn no: PJ5151961616",
+            //     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+            //   ),
+            //   trailing: Container(
+            //     height: 30,
+            //     width: 70,
+            //     decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(4),
+            //         color: commoncolor),
+            //     child: ElevatedButton(
+            //         style: ElevatedButton.styleFrom(
+            //             backgroundColor: Colors.transparent, elevation: 0),
+            //         onPressed: () {},
+            //         child: Text("Delete",
+            //             style: TextStyle(
+            //                 fontWeight: FontWeight.w400,
+            //                 fontSize: 10,
+            //                 color: Color.fromRGBO(255, 255, 255, 1)))),
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 14,
+            // ),
+            // ListTile(
+            //   onTap: () {},
+            //   leading: Container(
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.only(
+            //           topLeft: Radius.circular(12),
+            //           bottomLeft: Radius.circular(12)),
+            //       color: Color.fromRGBO(243, 243, 243, 1),
+            //     ),
+            //     height: 73,
+            //     width: 79,
+            //     child: Image.asset("assets/Ellipse.png"),
+            //   ),
+            //   title: Text(
+            //     "Rohit sharma \nLicn no: PJ5151961616",
+            //     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+            //   ),
+            //   trailing: Container(
+            //     height: 30,
+            //     width: 70,
+            //     decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(4),
+            //         color: commoncolor),
+            //     child: ElevatedButton(
+            //         style: ElevatedButton.styleFrom(
+            //             backgroundColor: Colors.transparent, elevation: 0),
+            //         onPressed: () {},
+            //         child: Text("Delete",
+            //             style: TextStyle(
+            //                 fontWeight: FontWeight.w400,
+            //                 fontSize: 10,
+            //                 color: Color.fromRGBO(255, 255, 255, 1)))),
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 14,
+            // ),
+            // ListTile(
+            //   onTap: () {},
+            //   leading: Container(
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.only(
+            //           topLeft: Radius.circular(12),
+            //           bottomLeft: Radius.circular(12)),
+            //       color: Color.fromRGBO(243, 243, 243, 1),
+            //     ),
+            //     height: 73,
+            //     width: 79,
+            //     child: Image.asset("assets/Ellipse.png"),
+            //   ),
+            //   title: Text(
+            //     "Rohit sharma \nLicn no: PJ5151961616",
+            //     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
+            //   ),
+            //   trailing: Container(
+            //     height: 30,
+            //     width: 70,
+            //     decoration: BoxDecoration(
+            //         borderRadius: BorderRadius.circular(4),
+            //         color: commoncolor),
+            //     child: ElevatedButton(
+            //         style: ElevatedButton.styleFrom(
+            //             backgroundColor: Colors.transparent, elevation: 0),
+            //         onPressed: () {},
+            //         child: Text("Delete",
+            //             style: TextStyle(
+            //                 fontWeight: FontWeight.w400,
+            //                 fontSize: 10,
+            //                 color: Color.fromRGBO(255, 255, 255, 1)))),
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -267,8 +352,7 @@ class DriversList extends StatelessWidget {
           height: 58,
           width: double.infinity,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(7),
-              color: Color.fromRGBO(252, 21, 59, 1)),
+              borderRadius: BorderRadius.circular(7), color: commoncolor),
           child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent, elevation: 0),

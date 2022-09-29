@@ -5,20 +5,23 @@ import 'package:noviindus_api/constant.dart';
 import 'package:noviindus_api/model/login_model.dart';
 import 'package:http/http.dart' as http;
 
-Future<LoginModel?> loginapi() async {
+Future<LoginModel?> loginapi(String username, String password) async {
   // print("api$email password $password");
   log("ys");
-  final res =
-      await http.post(Uri.parse(constant.baseURL + constant.loginurl), body: {
-    constant.loginkeyusername: "admin_user",
-    constant.loginkeypassword: "123admin789"
-  });
+  final res = await http.post(Uri.parse(constant.baseURL + constant.loginurl),
+      body: {
+        constant.loginkeyusername: username,
+        constant.loginkeypassword: password
+      });
+  // admin_user
+  // 123admin789
   log("${res.statusCode}");
   if (res.statusCode == 200) {
     final decoded = jsonDecode(res.body);
     log("done ${decoded['access']}");
     saveget.saveapikey("${decoded['access']}");
-    log("${LoginModel.fromJson(json.decode(res.body))}");
+    log("${decoded['url_id']}");
+    saveget.saveurlid("${decoded['url_id']}");
 
     // if (res.statusCode != 100) {
     //   final decoded = jsonDecode(res.body);

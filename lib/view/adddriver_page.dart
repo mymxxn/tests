@@ -1,10 +1,19 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
+import 'package:noviindus_api/API/apicalling.dart';
+import 'package:noviindus_api/model/drivermanagement_model.dart';
 import 'package:noviindus_api/view/widget.dart';
 
 class AddDriverPage extends StatelessWidget {
-  const AddDriverPage({super.key});
+  AddDriverPage({super.key});
+  final _formkey = GlobalKey<FormState>();
+  final namecontroller = TextEditingController();
+  final lisencecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -12,43 +21,48 @@ class AddDriverPage extends StatelessWidget {
       appBar: commonappbar("Add Driver"),
       body: Padding(
         padding: const EdgeInsets.only(left: 29, right: 29, top: 39),
-        child: Column(children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Color.fromRGBO(42, 42, 42, 0.1),
+        child: Form(
+          key: _formkey,
+          child: Column(children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Color.fromRGBO(42, 42, 42, 0.1),
+              ),
+              child: TextField(
+                  controller: namecontroller,
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintText: "Enter Name",
+                    hintStyle: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                        color: Color.fromRGBO(112, 112, 112, 1)),
+                    border: OutlineInputBorder(borderSide: BorderSide.none),
+                  )),
             ),
-            child: TextField(
-                textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                  hintText: "Enter Name",
-                  hintStyle: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                      color: Color.fromRGBO(112, 112, 112, 1)),
-                  border: OutlineInputBorder(borderSide: BorderSide.none),
-                )),
-          ),
-          SizedBox(
-            height: 17,
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Color.fromRGBO(42, 42, 42, 0.1),
+            SizedBox(
+              height: 17,
             ),
-            child: TextField(
-                textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                  hintText: "Enter License Number",
-                  hintStyle: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                      color: Color.fromRGBO(112, 112, 112, 1)),
-                  border: OutlineInputBorder(borderSide: BorderSide.none),
-                )),
-          ),
-        ]),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Color.fromRGBO(42, 42, 42, 0.1),
+              ),
+              child: TextField(
+                  controller: lisencecontroller,
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hintText: "Enter License Number",
+                    hintStyle: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15,
+                        color: Color.fromRGBO(112, 112, 112, 1)),
+                    border: OutlineInputBorder(borderSide: BorderSide.none),
+                  )),
+            ),
+          ]),
+        ),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 40),
@@ -56,12 +70,40 @@ class AddDriverPage extends StatelessWidget {
           height: 58,
           width: double.infinity,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(7),
-              color: Color.fromRGBO(252, 21, 59, 1)),
+              borderRadius: BorderRadius.circular(7), color: commoncolor),
           child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent, elevation: 0),
-              onPressed: () {},
+              onPressed: () async {
+                FocusScope.of(context).unfocus();
+
+                if (_formkey.currentState!.validate()) {
+                  final res = await Services.drivermanagementpost(
+                      namecontroller.text, lisencecontroller.text);
+                  log("yeaaaaaadone");
+                  if (res?.status == true) {
+                    // SharedPreferences prefs =
+                    //     await SharedPreferences
+                    //         .getInstance();
+                    // prefs.setString(
+                    //     "name", "Accountant app");
+
+                    Services.drivermanagementpost(
+                            namecontroller.text, lisencecontroller.text)
+                        .then((result) {
+                      // Savetoken.savetoken(
+                      //     "${result!.data!.token}");
+                      // var getscsd = SaveId.getId();
+                      Get.back();
+                    });
+                  } else {
+                    Fluttertoast.showToast(msg: "${res?.message}");
+
+                    print(res?.message);
+                    res?.message;
+                  }
+                }
+              },
               child: Text("Save",
                   style: TextStyle(
                       fontWeight: FontWeight.w500,

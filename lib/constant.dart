@@ -5,6 +5,8 @@ class constant {
   static String loginurl = "LoginApi";
   static const loginkeyusername = "username";
   static const loginkeypassword = "password";
+  static const buslisturl = "BusListApi/";
+  static const driverslist = "DriverApi/";
 }
 
 class saveget {
@@ -16,5 +18,15 @@ class saveget {
   static getapikeyl() {
     final box = GetStorage();
     return box.read("apikey") ?? true;
+  }
+
+  static saveurlid(String urlid) {
+    final box = GetStorage();
+    box.write("urlid", urlid);
+  }
+
+  static geturlid() {
+    final box = GetStorage();
+    return box.read("urlid") ?? true;
   }
 }
